@@ -75,9 +75,9 @@ class BaseLoader(object):
 
     def import_default_modules(self):
         import_set = self.conf.get("CELERY_IMPORTS") or ()
-        imports = set([import_set] if isinstance(import_set,str) else list(import_set))
-                        return [self.import_task_module(module)
-                    for module in imports | self.builtin_modules]
+        imports = set([import_set] if isinstance(import_set,str) else list(import_set)
+        return [self.import_task_module(module)
+               for module in imports | self.builtin_modules]
 
     def init_worker(self):
         if not self.worker_initialized:
